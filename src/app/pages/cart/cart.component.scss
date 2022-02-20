@@ -1,0 +1,63 @@
+#cart {
+  text-align: center;
+  input[type="checkbox"],
+  button,
+  i {
+    cursor: pointer;
+  }
+  .select-all {
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+  }
+  .container-shop {
+    .shop {
+      overflow-x: auto;
+      table {
+        .th-title,
+        .td-title {
+          white-space: normal;
+        }
+        .td-image {
+          img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        .td-quantity {
+          button {
+            span {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+          }
+          .btn:not(:last-child) {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+  .calculator {
+    position: sticky;
+    bottom: 0;
+    box-shadow: 0 0 2rem 0 rgb(136 152 170 / 35%);
+    .calculator-item {
+      .item {
+        display: grid;
+        grid-template-columns: auto 70px 50px;
+        gap: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 650px) {
+    .calculator {
+      grid-template-columns: auto 1fr;
+    }
+  }
+}

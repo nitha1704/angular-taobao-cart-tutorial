@@ -1,0 +1,105 @@
+<section id="product">
+    <div class="loading" *ngIf="isLoading">
+        <div class="wrapper">
+            <h1>Loading...</h1>
+        </div>     
+    </div>
+    <div class="inner">
+        <div class="order">
+            <h2>สั่งสินค้าตรงนี้</h2>
+            <input type="text" [value]="productUrl" #linkUrl>
+            <button class="order-btn" (click)="getProduct(linkUrl.value)">Go</button>
+        </div>
+        <div class="product">
+            <div class="product-section1">
+                <div class="wrap-big-image">
+                    <img src="{{bigImageUrl}}" />
+                </div>
+                <div class="wrap-small-image">
+                    <div class="small-image" *ngFor="let item of product.item_imgs"
+                        (mouseover)="switchBigImage(item, smallImage)" #smallImage>
+                        <img src="{{item.url}}" />
+                    </div>
+                </div>
+            </div>
+            <div class="product-section2">
+                <a routerLink="/cart">CART</a>
+                <button (click)="show()">show</button>
+                <h2>{{propValue || 0}}</h2>
+                <h1>{{product.title}}</h1>
+                <div class="line"></div>
+                <div class="price">
+                    <div class="product-price" *ngIf="product.props_list.length === 0">
+                        <h2>ราคา {{productPriceDefault}} ¥</h2>
+                    </div>
+                    <div class="price-range" *ngIf="!isPropListArray()">
+                        <h2 *ngIf="!propValue">
+                            <span>ราคา {{productPriceDefault}}</span>
+                            <span *ngIf="productPriceDefault !== mostExpensivePrice"> - {{mostExpensivePrice}}</span>
+                            <span> ¥</span>
+                        </h2>
+                        <h2 *ngIf="propValue">ราคา {{propValue}} ¥</h2>
+                    </div>
+                </div>
+                <div class="props">
+                    <div class="prop1" *ngIf="propsList.length > 0">
+                        <div class="title">
+                            ตัวเลือก 1
+                        </div>
+                        <div class="wrap-item-prop1">
+                            <div class="item" *ngFor="let item of propsList" id="{{item.properties}}"
+                                (click)="prop1Active(itemProp1Ref, item)" #itemProp1Ref>
+                                {{item.prop_name}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block" style="margin:25px 0"></div>
+                    <div class="prop2" *ngIf="product.prop_imgs.prop_img.length > 0">
+                        <div class="title">
+                            ตัวเลือก 2
+                        </div>
+                        <div class="wrap-item-prop2">
+                            <div class="item" *ngFor="let item of product.prop_imgs.prop_img" id="{{item.properties}}"
+                                (click)="prop2Active(itemProp2Ref, item)" #itemProp2Ref>
+                                <img src="{{item.url}}" class="img-prop2" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quantity">
+                    <div class="quantity-section1">
+                        จำนวน
+                    </div>
+                    <div class="quantity-section2">
+                        <div class="quantity-number">
+                            <input type="text" [value]="quantity">
+                        </div>
+                        <div class="arrow-wrapper">
+                            <span class="increment-btn" (click)="incrementItem()">&#9650;</span>
+                            <span class="decrement-btn" (click)="decrementItem()">&#9660;</span>
+                        </div>
+                        <div class="stock">
+                            <span *ngIf="quantityInStock > 0">(มีในสต๊อกจำนวน {{quantityInStock}} ชิ้น)</span>
+                            <span *ngIf="quantityInStock === 0">(สินค้าหมด)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="note">
+                    <div class="note-section1">
+                        หมายเหตุ
+                    </div>
+                    <div class="note-section2">
+                        <textarea name="" id="" cols="30" rows="5"></textarea>
+                    </div>
+                </div>
+                <div class="add-to-cart">
+                    <div></div>
+                    <button [disabled]="isButtonDisabled || quantityInStock === 0"
+                    (click)="addProduct()">
+                        กดเข้าตะกร้า
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

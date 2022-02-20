@@ -1,0 +1,208 @@
+#product {
+  min-height: 100vh;
+  .loading {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .wrapper {
+      background-color: white;
+      padding: 50px;
+      border-radius: 10px;
+    }
+    h1 {
+      color: black;
+      letter-spacing: 1px;
+      font-size: 50px;
+    }
+  }
+  .order {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    input {
+      margin: 0 10px;
+      padding: 10px;
+      height: 30px;
+      width: 50%;
+      border: 2px solid orange;
+      border-radius: 5px;
+    }
+    .order-btn {
+      color: white;
+      background-color: orangered;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  }
+  .product {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid;
+    border-radius: 5px;
+  }
+  .product-section1 {
+    .wrap-big-image {
+      text-align: center;
+      img {
+        width: 30vw;
+        height: 100%;
+      }
+    }
+    .wrap-small-image {
+      display: flex;
+      justify-content: space-between;
+      .small-image {
+        border: 3px solid transparent;
+        cursor: pointer;
+        &:hover {
+          border: 3px solid black;
+        }
+      }
+      .small-image.active {
+        border: 3px solid black;
+      }
+      img {
+        width: 5vw;
+        height: 100%;
+      }
+    }
+  }
+
+  .product-section2 {
+    .line {
+      width: 100%;
+      height: 1px;
+      background-color: #adb1b8;
+      margin: 10px 0;
+    }
+    .price {
+      padding: 10px;
+      background-color: bisque;
+      color: orangered;
+    }
+    .props {
+      margin-top: 20px;
+      .prop1 {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+      }
+      .prop2 {
+        display: grid;
+        grid-template-columns: 100px 1fr;
+      }
+      .wrap-item-prop1 {
+        display: flex;
+        .item {
+          border: 1px solid #dcdcdc;
+          padding: 5px;
+          margin-right: 5px;
+          cursor: pointer;
+          &:hover {
+            border: 2px solid orangered;
+            padding: 4px;
+          }
+        }
+        .item.active {
+          border: 2px solid orangered;
+          padding: 4px;
+        }
+      }
+      .wrap-item-prop2 {
+        display: flex;
+        flex-wrap: wrap;
+        .item {
+          display: flex;
+          align-items: center;
+          border: 1px solid #dcdcdc;
+          padding: 5px;
+          margin-right: 5px;
+          cursor: pointer;
+          &:hover {
+            border: 2px solid orangered;
+            padding: 4px;
+          }
+        }
+        .item.active {
+          border: 2px solid orangered;
+          padding: 4px;
+        }
+        .img-prop2 {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+    .quantity {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      align-items: center;
+      margin-top: 25px;
+      .quantity-section2 {
+        display: flex;
+        align-items: center;
+        .quantity-number {
+          input {
+            width: 30px;
+            height: 25px;
+          }
+        }
+        .arrow-wrapper {
+          margin-left: 5px;
+          span {
+            display: block;
+            font-size: 11px;
+            cursor: pointer;
+            &:hover {
+              color: red;
+            }
+          }
+        }
+        .stock {
+          margin-left: 10px;
+        }
+      }
+    }
+    .note {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      margin-top: 25px;
+      .note-section2 {
+        textarea {
+          padding: 10px;
+        }
+      }
+    }
+    .add-to-cart {
+      display: grid;
+      grid-template-columns: 100px 100px;
+      margin-top: 25px;
+      button {
+        padding: 10px;
+        cursor: pointer;
+        background-color: orangered;
+        border: orangered;
+        color: white;
+        &:active {
+          background-color: black;
+        }
+      }
+      button:disabled {
+        cursor: not-allowed;
+        background-color: darkgray;
+        color: white;
+      }
+    }
+  }
+}
