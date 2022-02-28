@@ -70,7 +70,6 @@ export class ApiService {
       }
       this.productUrl.next(`https://detail.tmall.com/item.htm?id=${productId}`);
     }
-  
     return this.http.get<any>(
       `https://taobao-tmall-16881.p.rapidapi.com/api/tkl/item/detail?provider=taobao&id=${productId}`,
       { headers: httpHeadersValue }
